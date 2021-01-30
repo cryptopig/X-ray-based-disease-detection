@@ -9,10 +9,10 @@ from keras.preprocessing import image
 import os
 import zipfile
 
-train_normal_dir = os.path.join('C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\train\\NORMAL')
-train_covid_dir = os.path.join('C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\train\covid')
-test_normal_dir = os.path.join('C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\val\\NORMAL')
-test_covid_dir = os.path.join('C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\val\covid')
+train_normal_dir = os.path.join('C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\train\\NORMAL')
+train_covid_dir = os.path.join('C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\train\covid')
+test_normal_dir = os.path.join('C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\val\\NORMAL')
+test_covid_dir = os.path.join('C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\val\covid')
 
 train_normal_names = os.listdir(train_normal_dir)
 train_covid_names = os.listdir(train_covid_dir)
@@ -63,14 +63,14 @@ train_datagen = ImageDataGenerator(rescale = 1/255)
 test_datagen = ImageDataGenerator(rescale = 1/255)
 
 train_generator = train_datagen.flow_from_directory(
-    'C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\train',
+    'C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\train',
     target_size = (300,300),
     batch_size = 128,
     class_mode = 'binary'
 )
 
 validation_generator = test_datagen.flow_from_directory(
-    'C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\val',
+    'C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\val',
     target_size = (300, 300),
     batch_size = 128,
     class_mode = 'binary'
@@ -85,8 +85,8 @@ history = model.fit(
 )
 
 # Test N is for people who are normal, while Test C is for people who have the novel coronavirus.
-testN = 'C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\test\\NORMAL\\IM-0001-0001.jpeg'
-testC = 'C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\test\\COVID\\person1_virus_6.jpeg'
+testN = 'C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\test\\NORMAL\\IM-0001-0001.jpeg'
+testC = 'C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\test\\COVID\\person1_virus_6.jpeg'
 
 
 img = image.load_img(testC, target_size=(300,300))
@@ -122,7 +122,7 @@ for i, m in enumerate(metric):
 test_datagen = ImageDataGenerator(rescale = 1/255)
 
 test_generator = test_datagen.flow_from_directory(
-    'C:\\Users\\Vedant\\PycharmProjects\\data\\COVID\\chest_xray\\val',
+    'C:\\Users\\NAME\\FOLDER\\data\\COVID\\chest_xray\\val',
     target_size = (300, 300),
     batch_size = 128,
     class_mode = 'binary'
@@ -160,7 +160,7 @@ from xlrd import open_workbook
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-file_name =  'C:\\Users\\Vedant\\Documents\\COVID.xlsx'
+file_name =  'C:\\Users\\NAME\\DEMOGRAPHICDATASETFOLDER\\COVID.xlsx'
 sheet =  'Line-list'
 
 df = pd.read_excel(io=file_name, sheet_name=sheet)
