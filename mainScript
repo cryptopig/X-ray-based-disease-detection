@@ -133,7 +133,7 @@ print('loss rate at evaluation data :', eval_result[0])
 print('accuracy rate at evaluation data :', eval_result[1])
 
 # At this point, the model is now ready to make a prediction by itself. It has finished training and will now make a prediction.
-# The user can input an image and the computer will detect whether the x-ray is normal or if the patient has pneumonia
+# The user can input an image and the computer will detect whether the x-ray is normal or if the patient has COVID-19.
 
 from google.colab import files
 uploaded = files.upload()
@@ -149,7 +149,7 @@ for fn in uploaded.keys():
   classes = model.predict(images, batch_size = 10)
   print(classes[0])
   if classes[0]> 0.5:
-    print(fn + ' is pneumonia')
+    print(fn + ' is COVID')
     plt.imshow(img)
   else:
     print(fn + 'is normal')
